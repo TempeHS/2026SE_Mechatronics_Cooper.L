@@ -4,7 +4,8 @@ from servo import Servo
 
 
 # create a PWM servo controller (16 - pin Pico)
-servo_pwm = PWM(Pin(16))
+servo_pwm_l = PWM(Pin(16))
+servo_pwm_r = PWM(Pin(15))
 
 # Set the parameters of the servo pulses, more details in the "Documentation" section
 freq = 50
@@ -12,19 +13,38 @@ min_us = 500
 max_us = 2500
 dead_zone_us = 1500
 
-# create a servo object
-my_servo = Servo(
-    pwm=servo_pwm, min_us=min_us, max_us=max_us, dead_zone_us=dead_zone_us, freq=freq
-)
 
-
+'''
 while True:
     # manually set the servo duty time
-    my_servo.set_duty(500)
+    servo_l.set_duty(1400)
+    servo_r.set_duty(1600)
     time.sleep(2)
 
-    my_servo.set_duty(1500)
+    servo_l.set_duty(1600)
+    servo_r.set_duty(1400)
     time.sleep(2)
 
-    my_servo.stop()
+    servo_l.stop()
+    servo_r.stop()
     time.sleep(2)
+'''
+class Movement_test:
+    def __innit(self, servo_l, servo_r, debug=False):
+        self.__servo_left = servo_l
+        self.__servo_right = servo_r
+    def forward(self):
+        self.__servo_left.set_duty(1350)
+        self.__servo_right.set_duty(1650)
+    def fast(self):
+        self.__servo_left.set_duty(1000)
+        self.__servo_right.set_duty(2000) 
+    def back(self):
+        self.__servo_left.set_duty(1650)
+        self.__servo_right.set_duty(1350)
+
+while True:
+    Movement_test.forward()
+    sleep(3)
+    Movement_test.back()
+    sleep(3)

@@ -28,9 +28,7 @@ max_us = 2500
 dead_zone_us = 1500
 
 # create a servo object
-my_servo = Servo(
-    pwm=servo_pwm, min_us=min_us, max_us=max_us, dead_zone_us=dead_zone_us, freq=freq
-)
+my_servo = Servo(pwm=servo_pwm)
 
 
 while True:
