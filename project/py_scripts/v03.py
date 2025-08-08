@@ -21,15 +21,8 @@ from servo import Servo
 # create a PWM servo controller (16 - pin Pico)
 servo_pwm = PWM(Pin(16))
 
-# Set the parameters of the servo pulses, more details in the "Documentation" section
-freq = 50
-min_us = 500
-max_us = 2500
-dead_zone_us = 1500
-
-# create a servo object
+# create a servo object using default servo parameters
 my_servo = Servo(pwm=servo_pwm)
-
 
 while True:
     # manually set the servo duty time
@@ -37,6 +30,9 @@ while True:
     time.sleep(2)
 
     my_servo.set_duty(1500)
+    time.sleep(2)
+
+    my_servo.set_duty(2500)
     time.sleep(2)
 
     my_servo.stop()

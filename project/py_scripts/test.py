@@ -1,0 +1,31 @@
+from time import sleep
+from machine import Pin, PWM
+from servo import Servo
+
+class Movement():
+    def __init__(self, rwheel, lwheel):
+        self.__rservo = rwheel
+        self.__lservo =lwheel
+    def backward(self):
+        self.__rservo.set_duty(1650)
+        self.__lservo.set_duty(1350)
+    def fforward(self):
+        self.__rservo.set_duty(500)
+        self.__lservo.set_duty(2500)
+    def sforward(self):
+        self.__rservo.set_duty(1300)
+        self.__lservo.set_duty(1700)
+    def forward(self):
+        self.__rservo.set_duty(1150)
+        self.__lservo.set_duty(1850)
+    def rotate(self):
+        self.__rservo.set_duty(1300)
+        self.__lservo.set_duty(1300)
+    def stop(self):
+        self.__rservo.set_duty(1500)
+        self.__lservo.set_duty(1500)
+
+class Sensor():
+    def __init__(self, fsensor, ssensor):
+        self.__fsensor = fsensor
+        self.__ssensor = ssensor
