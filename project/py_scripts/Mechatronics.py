@@ -37,7 +37,7 @@ while True:
         wheels.rotate()
         time.sleep(1.5)
 '''
-
+'''
 while True:
     wheels.forward()
     if range_b.distance_mm < 100:
@@ -48,4 +48,27 @@ while True:
         else: 
             wheels.rotate()
             time.sleep(3)
-    
+    '''
+
+while True:
+    if range_b.distance_mm > 100:
+        wheels.forward()
+        time.sleep(1.1)
+        wheels.rotate()
+        time.sleep(1.2)
+        wheels.stop()
+        time.sleep(1)
+        wheels.forward()
+        time.sleep(1)
+    if range_a.distance_mm < 100:
+        wheels.rotate()
+        time.sleep(1.2)
+        wheels.stop()
+        time.sleep(0.2)
+        wheels.rotate()
+        time.sleep(1.2)
+        wheels.stop()
+        time.sleep(0.2)
+
+
+
