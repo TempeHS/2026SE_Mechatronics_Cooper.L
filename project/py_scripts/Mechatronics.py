@@ -1,7 +1,7 @@
 import time
 from machine import Pin, PWM
 from servo import Servo
-from test import Movement
+from movement import Movement
 from PiicoDev_Ultrasonic import PiicoDev_Ultrasonic
 from PiicoDev_Unified import sleep_ms
 
@@ -51,24 +51,41 @@ while True:
     '''
 
 while True:
-    if range_b.distance_mm > 100:
-        wheels.forward()
-        time.sleep(1.1)
-        wheels.rotate()
-        time.sleep(1.2)
-        wheels.stop()
-        time.sleep(1)
-        wheels.forward()
-        time.sleep(1)
-    if range_a.distance_mm < 100:
-        wheels.rotate()
+    if range_a.distance_mm > 100:
+        if range_b.distance_mm > 100:
+            wheels.forward()
+            time.sleep(1.1)
+            wheels.rrotate()
+            time.sleep(1.2)
+            wheels.stop()
+            time.sleep(1)
+            if range_a.distance_mm <= 100:
+                wheels.rrotate()
+                time.sleep(1.2)
+                wheels.stop()
+                time.sleep(0.2)
+                wheels.rrotate()
+                time.sleep(1.2)
+                wheels.stop()
+                time.sleep(0.2)
+                RotateControl = 1
+            else:
+                wheels.forward()
+                time.sleep(1)
+    elif range_a.distance_mm <= 100:
+        wheels.rrotate()
         time.sleep(1.2)
         wheels.stop()
         time.sleep(0.2)
-        wheels.rotate()
+        wheels.rrotate()
         time.sleep(1.2)
         wheels.stop()
         time.sleep(0.2)
-
+        RotateControl = 1
+        if range_b.distance_mm > 100:
+            wheels.rrotate()
+            time.sleep(1.2)
+            wheels.stop()
+            time.sleep(0.2)
 
 

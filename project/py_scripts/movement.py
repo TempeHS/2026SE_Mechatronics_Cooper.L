@@ -18,9 +18,12 @@ class Movement():
     def forward(self):
         self.__rservo.set_duty(1150)
         self.__lservo.set_duty(1850)
-    def rotate(self):
+    def rrotate(self):
         self.__rservo.set_duty(1700)
         self.__lservo.set_duty(1700)
+    def lrotate(self):
+        self.__rservo.set_duty(1300)
+        self.__lservo.set_duty(1300)
     def stop(self):
         self.__rservo.set_duty(1500)
         self.__lservo.set_duty(1500)
