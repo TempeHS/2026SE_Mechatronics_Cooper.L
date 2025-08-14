@@ -1,4 +1,4 @@
-import time
+from time import sleep
 from machine import Pin, PWM
 from servo import Servo
 from movement import Movement
@@ -54,38 +54,39 @@ while True:
     if range_a.distance_mm > 100:
         if range_b.distance_mm > 100:
             wheels.forward()
-            time.sleep(1.1)
+            sleep(1.1)
             wheels.rrotate()
-            time.sleep(1.2)
+            sleep(1.2)
             wheels.stop()
-            time.sleep(1)
+            sleep(1)
             if range_a.distance_mm <= 100:
                 wheels.rrotate()
-                time.sleep(1.2)
+                sleep(1.2)
                 wheels.stop()
-                time.sleep(0.2)
+                sleep(0.2)
                 wheels.rrotate()
-                time.sleep(1.2)
+                sleep(1.2)
                 wheels.stop()
-                time.sleep(0.2)
-                RotateControl = 1
+                sleep(0.2)
             else:
                 wheels.forward()
-                time.sleep(1)
+                sleep(1)
+                
     elif range_a.distance_mm <= 100:
         wheels.rrotate()
-        time.sleep(1.2)
+        sleep(1.2)
         wheels.stop()
-        time.sleep(0.2)
+        sleep(0.2)
         wheels.rrotate()
-        time.sleep(1.2)
+        sleep(1.2)
         wheels.stop()
-        time.sleep(0.2)
-        RotateControl = 1
+        sleep(0.2)
+        wheels.backward()
+        sleep(0.3)
         if range_b.distance_mm > 100:
             wheels.rrotate()
-            time.sleep(1.2)
+            sleep(1.2)
             wheels.stop()
-            time.sleep(0.2)
+            sleep(0.2)
 
 
