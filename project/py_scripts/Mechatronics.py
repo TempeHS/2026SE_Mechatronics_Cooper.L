@@ -25,31 +25,6 @@ range_a = PiicoDev_Ultrasonic(id=[0, 0, 0, 0])
 range_b = PiicoDev_Ultrasonic(id=[0, 0, 0, 1]) 
 
 
-'''
-while True:
-    if range_a.distance_mm > 200:
-        wheels.fforward()
-    elif range_a.distance_mm > 150:
-        wheels.forward()
-    elif range_a.distance_mm > 125:
-        wheels.sforward()
-    elif range_a.distance_mm <= 100:
-        wheels.rotate()
-        time.sleep(1.5)
-'''
-'''
-while True:
-    wheels.forward()
-    if range_b.distance_mm < 100:
-        wheels.rotate()
-        time.sleep(1.5)
-        if range_a.distance_mm > 200:
-            break
-        else: 
-            wheels.rotate()
-            time.sleep(3)
-    '''
-
 while True:
     if range_a.distance_mm > 100:
         if range_b.distance_mm > 100:
@@ -71,7 +46,6 @@ while True:
             else:
                 wheels.forward()
                 sleep(1)
-                
     elif range_a.distance_mm <= 100:
         wheels.rrotate()
         sleep(1.2)
