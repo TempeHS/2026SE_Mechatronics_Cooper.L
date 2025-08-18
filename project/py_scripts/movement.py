@@ -28,7 +28,3 @@ class Movement():
         self.__rservo.set_duty(1500)
         self.__lservo.set_duty(1500)
 
-class Sensor():
-    def __init__(self, fsensor, ssensor):
-        self.__fsensor = fsensor
-        self.__ssensor = ssensor
