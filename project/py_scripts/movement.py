@@ -5,7 +5,7 @@ from servo import Servo
 class Movement():
     def __init__(self, rwheel, lwheel):
         self.__rservo = rwheel
-        self.__lservo =lwheel
+        self.__lservo = lwheel
     def backward(self):
         self.__rservo.set_duty(1650)
         self.__lservo.set_duty(1350)
