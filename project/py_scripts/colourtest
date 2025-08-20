@@ -1,4 +1,0 @@
-from 
-
-colourSensor = PiicoDev_VEML6040() # initialise the sensor
-data = Scan(colourSensor.readHSV())
