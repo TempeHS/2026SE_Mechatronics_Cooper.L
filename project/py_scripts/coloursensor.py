@@ -1,4 +1,4 @@
-class Scan():
+class ColourScan():
     def __init__(self, sensor):
         self.__sensor = sensor
     def scan(self):
