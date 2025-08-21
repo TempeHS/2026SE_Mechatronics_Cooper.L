@@ -3,7 +3,7 @@ from machine import Pin, PWM
 from servo import Servo
 
 class Movement():
-    def __init__(self, rwheel, lwheel):
+    def __init__(self, rwheel, lwheel, debug = False):
         self.__rservo = rwheel
         self.__lservo = lwheel
     def backward(self):

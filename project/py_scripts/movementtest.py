@@ -1,17 +1,17 @@
 from time import sleep
 from machine import Pin, PWM
 from servo import Servo
-from Mechatronics import Movement_test
+from movement import Movement
 
 
 
 servo_pwm_left = PWM(Pin(16))
 servo_pwm_right = PWM(Pin(15))
 
-Movement_test(servo_pwm_left, servo_pwm_right, debug=False)
+Movement(servo_pwm_left, servo_pwm_right, debug=False)
 
 while True:
-    movement_test.forward()
+    Movement.forward()
     sleep(3)
-    movement_test.back()
+    Movement.back()
     sleep(3)
