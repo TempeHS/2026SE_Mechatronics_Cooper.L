@@ -7,7 +7,6 @@ colourSensor = PiicoDev_VEML6040()
 display = create_PiicoDev_SSD1306()
 data = Scan(colourSensor)
 
-
 while True:
     display.fill(0)
     display.text("PiicoDev",30,20, 1)
