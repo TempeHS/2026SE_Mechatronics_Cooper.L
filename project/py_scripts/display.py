@@ -4,10 +4,9 @@ from PiicoDev_VEML6040 import PiicoDev_VEML6040
 from coloursensor import ColourScan
 
 
-while True:
-    display.fill(0)
-    display.text(str(data.ColourScan()),50,35, 1)
-    display.show()
+colourSensor = PiicoDev_VEML6040()
+display = create_PiicoDev_SSD1306()
+data2 = ColourScan(colourSensor)
 
 class Display:
     def init__(self, display, debug):
@@ -18,4 +17,3 @@ class Display:
         display.show()
         
 
-        

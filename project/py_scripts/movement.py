@@ -2,6 +2,9 @@ from time import sleep
 from machine import Pin, PWM
 from servo import Servo
 
+servo_pwm_left = PWM(Pin(16))
+servo_pwm_right = PWM(Pin(15))
+
 class Movement():
     def __init__(self, rwheel, lwheel, debug = False):
         self.__rservo = rwheel
