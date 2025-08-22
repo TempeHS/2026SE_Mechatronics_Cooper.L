@@ -6,10 +6,10 @@ from display import Display
 
 
 colourSensor = PiicoDev_VEML6040()
-display = create_PiicoDev_SSD1306()
+screen = create_PiicoDev_SSD1306()
 data2 = ColourScan(colourSensor)
 
-oled = Display(display)
+oled = Display(screen)
 
 while True:
-    oled.display(green)
+    oled.showtext(data2.scan())
