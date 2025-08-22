@@ -1,4 +1,4 @@
-from coloursensor import Scan
+from coloursensor import c
 from PiicoDev_VEML6040 import PiicoDev_VEML6040
 from display import Display
 
