@@ -1,35 +1,58 @@
 from time import sleep
 from machine import Pin, PWM
 from servo import Servo
-from movement import Movement
 from states import State
-#from coloursensor import ColourScan
-#from display import Display
+from movement import Movement
 from PiicoDev_Ultrasonic import PiicoDev_Ultrasonic
 
-rwheel = Servo(pwm=PWM(15))
-lwheel = Servo(pwm=PWM(16))
-state = State(rwheel, lwheel)
+rwheel = Servo(PWM(Pin(15)))
+lwheel = Servo(PWM(Pin(16)))
+state = State(lwheel, rwheel)
 range_a = PiicoDev_Ultrasonic(id=[0, 0, 0, 0])
 range_b = PiicoDev_Ultrasonic(id=[1, 0, 0, 0]) 
 
+servo_pwm_left = PWM(Pin(16))
+servo_pwm_right = PWM(Pin(15))
+rightwheel = Servo(servo_pwm_left)
+leftwheel = Servo(servo_pwm_right)
+wheels = Movement(rightwheel, leftwheel)
 while True:
-    state.forward_state()
+    wheels.forward()
     if range_a.distance_mm > 100:
         if range_b.distance_mm > 100:
-            state.forward_state()
+            wheels.forward()
             sleep(1.1)
-            state.rotate_90_state()
+            wheels.rrotate()
+            sleep(1200)
+            wheels.stop()
+            sleep(200)
             if range_a.distance_mm <= 100:
-                state.rotate_180_state()
+                wheels.rrotate()
+                sleep(1200)
+                wheels.stop()
+                sleep(200)
+                wheels.rrotate()
+                sleep(1200)
+                wheels.stop()
+                sleep(200)
             else:
-                state.forward_state()
+                wheels.forward()
         else:
-            state.forward_state()
+            wheels.forward()
             sleep(1)
     else:
-        state.rotate_180_state()
+        wheels.rrotate()
+        sleep(1200)
+        wheels.stop()
+        sleep(200)
+        wheels.rrotate()
+        sleep(1200)
+        wheels.stop()
+        sleep(200)
         if range_b.distance_mm > 100:
-            state.rotate_90_state()
+            wheels.rrotate()
+            sleep(1200)
+            wheels.stop()
+            sleep(200)
 
 

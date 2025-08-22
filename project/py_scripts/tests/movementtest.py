@@ -3,8 +3,6 @@ from machine import Pin, PWM
 from servo import Servo
 from movement import Movement
 
-
-
 servo_pwm_left = PWM(Pin(16))
 servo_pwm_right = PWM(Pin(15))
 rightwheel = Servo(servo_pwm_left)

@@ -1,7 +1,5 @@
 from time import sleep
 
-
-
 class Movement():
     def __init__(self, rwheel, lwheel):
         self.__rservo = rwheel
@@ -27,4 +25,3 @@ class Movement():
     def stop(self):
         self.__rservo.set_duty(1500)
         self.__lservo.set_duty(1500)
-

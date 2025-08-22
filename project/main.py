@@ -4,7 +4,7 @@ from machine import Pin
 
 
 # File name of the script to import
-file_name = "movementtest"
+file_name = "mechatronics"
 
 # Add the path to the sys.path
 sys.path.append("/py_scripts")

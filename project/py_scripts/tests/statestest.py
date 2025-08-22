@@ -1,7 +1,7 @@
 from time import sleep
 from machine import Pin, PWM
 from servo import Servo
-from movement import Movement
+from project.lib.movement import Movement
 from states import State
 
 
